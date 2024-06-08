@@ -20,5 +20,10 @@ namespace CannabisApp
         {
             InitializeComponent();
         }
+
+        private void nomDutilisateur_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
