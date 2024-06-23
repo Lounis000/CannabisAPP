@@ -20,7 +20,7 @@ namespace CannabisApp
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source=LAPTOP-K1T841TP\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;User Id=LAPTOP-K1T841TP\\user;Integrated Security=True;\r\n",
+                "Data Source=DESKTOP-OE30FRF\\SQLEXPRESS;Database=NomDeLaBaseDeDonnées;Integrated Security=True;",
                  sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
              );
         }
