@@ -5,37 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CannabisApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="820"
-        ResizeMode="NoResize" SizeToContent="Manual">
-
-    <Border  Margin="10" Background="Beige" >
-        <Grid Margin="0,0,0,-6">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="134*" />
-                <RowDefinition Height="189*"/>
-                <RowDefinition Height="161*"/>
-            </Grid.RowDefinitions>
-
-            <Label Content="CONNEXION"  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" FontWeight="Black" Foreground='#295D91' Height="143" Width="604" Margin="243,33,0,0" Grid.RowSpan="2" />
-            <Label Content="USERNAME*" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="gray" Margin="98,15,0,0" Height="50" Width="493" />
-            <Label Content="PASSEORD*"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="GRAY" Margin="98,95,0,0" Height="50" Width="203" />
-            <TextBox x:Name="nomDutilisateur" Text="Enter your Username"   Style="{StaticResource RoundedText}" Grid.Row="1" TextAlignment="left" FontSize="20" FontFamily="SansSerif" Margin="98,45,132,101" RenderTransformOrigin="0.514,0.309" TextChanged="nomDutilisateur_TextChanged" Foreground='#595A5B' Background="lightgray"/>
-            <TextBox x:Name="motDePasse" Style="{StaticResource RoundedText}" Text="Enter your Password" Grid.Row="1" TextAlignment="left"  FontSize="20" FontFamily="SansSerif" Margin="98,125,128,19" RenderTransformOrigin="0.357,0.604" Foreground='#595A5B'  Background="lightgray">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="1.55"/>
-                        <RotateTransform/>
-                        <TranslateTransform X="-0.432"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-
-            <Button x:Name="Connexion" Style="{StaticResource RoundedButton}" Content="Connexion" Grid.Row="2" Margin="150,55,464,66" FontSize="15" Background= '#2E8B57' Foreground="White" FontWeight="Bold" Padding="10,5" BorderThickness="0"/>
-            <Button x:Name="quitter" Style="{StaticResource RoundedButton}"  Content="Quitter" Grid.Row="2" Margin="455,55,159,66" FontSize="15" Background="#CD5C5C"  Foreground="White" FontWeight="Bold" Padding="10,5" BorderThickness="0" />
-
-
-
+        Title="Application de Gestion de Plantes" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#F0F0F0" Margin="2,0,-2,0">
+        <!-- Section Connexion -->
+        <Grid x:Name="LoginSection" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
+                <StackPanel>
+                    <TextBlock Text="Bienvenue" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="Nom d'utilisateur" Foreground="#666" Margin="0,0,0,5"/>
+                    <TextBox x:Name="nomDutilisateur" Style="{StaticResource RoundedTextBox}" Margin="0,0,0,10"/>
+                    <TextBlock Text="Mot de passe" Foreground="#666" Margin="0,0,0,5"/>
+                    <PasswordBox x:Name="motDePasse" Style="{StaticResource RoundedPasswordBox}" Margin="0,0,0,20"/>
+                    <Button x:Name="Connexion" Content="Se connecter" Style="{StaticResource RoundedButton}" Click="Connexion_Click" Margin="0,0,0,10"/>
+                    <Button x:Name="quitter" Content="Quitter" Style="{StaticResource RoundedButton}" Background="#E81123" Click="Quitter_Click"/>
+                </StackPanel>
+            </Border>
         </Grid>
-    </Border>
+
+        <!-- Section Inventaire -->
+        <Grid x:Name="InventaireSection" Visibility="Collapsed" VerticalAlignment="Top" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Inventaire des Plantes" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                <Button x:Name="AjouterPlante" Content="Ajouter une Plante" Style="{StaticResource RoundedButton}" Click="AfficherAjouterPlanteSection" Margin="0,0,0,20"/>
+                <ListBox x:Name="ListePlantes" SelectionChanged="AfficherDetailsPlante"/>
+                <Button x:Name="Deconnexion" Content="Déconnexion" Style="{StaticResource RoundedButton}" Background="#E81123" Click="Deconnexion_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Section Détails de la Plante -->
+        <Grid x:Name="DetailsPlanteSection" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
+                <StackPanel>
+                    <TextBlock Text="Détails de la Plante" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock x:Name="DetailsPlante" Margin="0,0,0,10"/>
+                    <Button x:Name="RetourInventaire" Content="Retour" Style="{StaticResource RoundedButton}" Click="RetourInventaire_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Section Ajouter une Plante -->
+        <Grid x:Name="AjouterPlanteSection" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="White" CornerRadius="10" Padding="20" Margin="20">
+                <StackPanel>
+                    <TextBlock Text="Ajouter une Nouvelle Plante" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="Nom" Margin="0,0,0,5"/>
+                    <TextBox x:Name="NomPlante" Style="{StaticResource RoundedTextBox}" Margin="0,0,0,10"/>
+                    <TextBlock Text="Emplacement" Margin="0,0,0,5"/>
+                    <TextBox x:Name="EmplacementPlante" Style="{StaticResource RoundedTextBox}" Margin="0,0,0,10"/>
+                    <TextBlock Text="Code QR" Margin="0,0,0,5"/>
+                    <TextBox x:Name="CodeQRPlante" Style="{StaticResource RoundedTextBox}" Margin="0,0,0,10"/>
+                    <Button x:Name="Ajouter" Content="Ajouter" Style="{StaticResource RoundedButton}" Click="AjouterPlante_Click"/>
+                    <Button x:Name="RetourInventaireDepuisAjout" Content="Retour" Style="{StaticResource RoundedButton}" Click="RetourInventaire_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </Window>
