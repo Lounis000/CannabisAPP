@@ -86,3 +86,7 @@ C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net
 C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.pdb
 C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\CannabisApp.genruntimeconfig.cache
 C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\ref\CannabisApp.dll
+C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\Page2.g.cs
+C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\Page2.baml
+C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageConnexion.g.cs
+C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\obj\Debug\net6.0-windows\PageConnexion.baml

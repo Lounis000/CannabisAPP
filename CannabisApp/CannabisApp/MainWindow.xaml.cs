@@ -347,8 +347,12 @@ namespace CannabisApp
             _inventaireRepository = new InventaireRepository(new AppDbContext());
             _historiquePlantesRepository = new HistoriquePlantesRepository(new AppDbContext());
 
+            
             InitializeComponent();
 
+            
+                MainFrame.Navigate(new Page1());
+            
         }
 
 
@@ -357,10 +361,13 @@ namespace CannabisApp
             
 
             //_plantRepository.AddPlante(plante1);
-            _userRepository.DeleteUser(3);
+            //_userRepository.DeleteUser(3);
         }
-        
-       
-       
+
+        private void Connexion_Click(object sender, RoutedEventArgs e)
+        {
+            
+           
+        }
     }
 }

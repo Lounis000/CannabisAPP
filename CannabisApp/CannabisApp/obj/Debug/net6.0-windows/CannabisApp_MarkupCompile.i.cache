@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\user\Documents\GitHub\CannabisAPP\CannabisApp\CannabisApp\App.xaml
-21940794329
+4-1685044865
 
-18-1638424574
+201323010268
 2331805348095
-MainWindow.xaml;Window1.xaml;
+MainWindow.xaml;PageConnexion.xaml;PageTableauDeBordUser.xaml;Window1.xaml;
 
 False
 
